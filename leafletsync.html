@@ -1,0 +1,46 @@
+<!doctype html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <title>Leaflet Sync of two leaflet maps</title>
+    <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
+   
+</head>
+
+<body>
+    <div id="map1" style='width: 470px; height: 500px; float: left'></div>
+    <div id="map2" style='width: 450px; height: 500px; float: right'></div>
+    <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
+    <script src="file:///C:/Users/user/Desktop/New folder (3)/Leaflet.Sync-master/L.Map.Sync.js"></script>
+
+    <script>
+        
+        var osm = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png',{attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://mapsnigeriainitiative.wordpress.com">mapsNI</a>'});
+
+        var stamen = L.tileLayer('http://{s}.basemaps.cartocdn.com/light_all/{z}/{x}/{y}.png', {
+	attribution: '&copy; <a href="http://www.openstreetmap.org/copyright">OpenStreetMap</a> &copy; <a href="http://cartodb.com/attributions">CartoDB</a>',
+	subdomains: 'abcd',
+	maxZoom: 19
+});
+
+        var map1 = L.map('map1', {
+            layers: [osm],
+            center: [9.3, 8.9] ,
+            zoom: 5
+        });
+
+        
+        var map2 = L.map('map2', {
+            layers: [stamen],
+            center: [9.3, 8.9],
+            zoom: 5
+                   });
+
+        map1.sync(map2);
+        map2.sync(map1);
+
+L.marker([9,8]).addTo(map1);
+L.marker([9,8]).addTo(map2);
+    </script>
+</body>
+</html>
