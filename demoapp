@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Demo Web map application using Leaflet</title>
+    <meta charset="utf-8" />
+    <link 
+        rel="stylesheet" 
+        href="http://cdn.leafletjs.com/leaflet-0.7/leaflet.css"  />
+    <link rel="stylesheet" href="http://makinacorpus.github.io/Leaflet.FileLayer/Font-Awesome/css/font-awesome.min.css" />
+
+</head>
+<body style='background: #318fff'>
+<p style='color:brown;padding:20px;background:#fff;padding:2px #318fff'><strong>Basic demo map application enables the user to plot points, lines and polygons on a webmap
+using files from the PC</strong></p>
+<p><em> Simply click on the file icon and load in GPX, geojson, kml or topojson data from your PC onto the map</em></p>
+<p><em> Download sample geojson file by clicking 
+<a href="https://www.dropbox.com/s/87vu1vqvtjmz8ta/sample.geojson?dl=0">Sample geojson</a></em></p> Try it out yourself!!!!!!
+
+<div id='logo' style='position:absolute;bottom:90px;right:80px;float:right';>
+<img src="https://lh3.googleusercontent.com/P8KiHjlSq7a_o4Ps-AVsCsja4vPmTwrg-SaTck5wwD2LReAx3pnXfGAeZxmZjAHY9MHiopSbUcSI4YJDjUU9ruTjmlgplf_ZULll_afxJmu-HYvu2cYmDzhuyBinMsm8Rz1Je8ckUfgTqfgUh_jK2nNXFTXstHLR-Y0I_tvMb8WEWVnLcQyvItg-QV8VsUtKOCvWYRPfBJ64omgeEU_gGMfK_O9jhdEZH_wmZsJgtU6vmbqHR5rjpCMyfRuML7yBOEUGuP78DxPUwrSPF40ZvhywNHvU94Pb3Sm3-pl8rjypWMaxkKVODGt2KsEa1Dkh83wyqvvd14mrgDdZ1KPv8AZc64-1C615qMrt_ezHaBVzZaDsrJBOHHicu7nzSbr59Zyx-BxDxSuPYcHsb6z5-0S1-VlesYmkLfH_Vr5J7p5asutOHvOFIgV-h4kunobrZwLerqyHd9fxera5IJd3eiEm6d9x_zwXrRjt2kMrID_aB6Db9jxRcK7Y_SmutRbNtqFGhbSfGRhuaZd9_vtUjOFVwi26-2mI5ppq88R9Jw=w200-h69-no" width=100 height=80 /><br>
+phone: 07058112505<br>Email: ddivineres@gmail.com<br>
+<small><a href="http://divinedigitalresources.wordpress.com">divineDigitalResources</a><small>
+</div>
+
+    <div id="map" style="width: 700px; height: 400px;border: 2px solid black"></div>
+
+    <script src="http://cdn.leafletjs.com/leaflet-0.7/leaflet.js"></script>
+    <script src="http://makinacorpus.github.io/Leaflet.FileLayer/leaflet.filelayer.js"></script>
+    <script src="http://makinacorpus.github.io/Leaflet.FileLayer/togeojson/togeojson.js">    </script>
+
+    <script>
+        var map = L.map('map').setView([0, 0], 2);
+        mapLink = '<a href="http://openstreetmap.org">OpenStreetMap</a>' + ' <a href="http://mapsnigeriainitiative.wordpress.com">MapsNi</a>';
+        L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+            attribution: '&copy; ' + mapLink + ' Contributors', maxZoom: 18}).addTo(map);
+
+      
+   L.Control.FileLayerLoad.LABEL = '<i class="fa fa-folder-open"></i>';
+   L.Control.fileLayerLoad({
+            fitBounds: true,
+            layerOptions: {
+}}).addTo(map);
+
+    </script>
+</body>
+</html>
+
