@@ -6,7 +6,7 @@
   <script src="http://code.jquery.com/jquery-2.1.0.min.js"></script>
 </head>
 <body>
-  <div id="map"></div>
+  <div id="map" style='width:700px;height:500px'></div>
   <script>
   var map = L.map('map').setView([6.44, 3.55], 7);
   var = L.tileLayer('http://{s}.tiles.openstreetmap.org/{z}/{x}/{y}.png', {
