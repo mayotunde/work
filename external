@@ -3,7 +3,9 @@
 <head>
   <link rel="stylesheet" href="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.css" />
     <script src="http://cdn.leafletjs.com/leaflet-0.7.3/leaflet.js"></script>
-    <script src="https://raw.github.com/calvinmetcalf/leaflet-ajax/master/dist/leaflet.ajax.min.js"></script>
+   <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.6.2/jquery.min.js"> </script>
+<script>
+
 </head>
 <body>
   <div id="map" style='width:700px;height:500px'></div>
@@ -12,10 +14,10 @@
  mapLink = '<a href="http://openstreetmap.org">openstreetmap</a>,'+'<a href="http://mapsnigeriainitiative.wordpress.com">mapsNI</a>,'+'Census data:NPC 2006'; 
   var tile = L.tileLayer('http://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {attribution: ' &copy; ' + mapLink,maxZoom: 18}).addTo(map);
   
-  
-  var geojsonLayer = new L.GeoJSON.AJAX("https://cdn.rawgit.com/mayotunde/work/gh-pages/districtLagos.json", {onEachFeature:popUp});
-   
-      geojsonLayer.addTo(map);
+  var jma = "https://cdn.rawgit.com/mayotunde/work/gh-pages/districtLagos.json?callback=?";
+  $.getJSON(jma, function(data) {
+  L.geoJson(data).addTo(map);
+  });
       
   </script>
 </body>
