@@ -12,7 +12,7 @@
   var = L.tileLayer('http://{s}.tiles.openstreetmap.org/{z}/{x}/{y}.png', {
     maxZoom: 18}).addTo(map);
 
-  $.getJSON("https://cdn.rawgit.com/mayotunde/work/gh-pages/districtLagos.json", function(data) {
+  $.getJSON("districtLagos.json", function(data) {
     var geojson = L.geoJson(data, {
       onEachFeature: function (feature, layer) {
         layer.bindPopup(feature.properties.name);
